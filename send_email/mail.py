@@ -24,7 +24,8 @@ def send_email(content):
     server = smtplib.SMTP(smtp_server, )
     server.set_debuglevel(1)
     server.login(sender_user, sender_pwd)
-    server.sendmail(sender_user, to_addr, msg.as_string())
+    for i in range(len(to_addr)):
+        server.sendmail(sender_user, to_addr[i], msg.as_string())
     server.quit()
 
 
