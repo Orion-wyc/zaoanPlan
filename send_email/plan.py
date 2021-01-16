@@ -1,7 +1,8 @@
 import schedule
 from send_email import mail
 from greetings import sentence
-from .configuration import configs
+from send_email.config import config
+
 
 # 建议发送
 def send():
@@ -10,16 +11,20 @@ def send():
 
 
 # 定时某一时刻发送
-def send_email(send_time):
+def send_email():
+    send_time = config.send_time
+
     print("schedule")
-    schedule.every().day.at(configs[send_time]).do(send)
+    schedule.every().day.at(send_time["test"]).do(send)
 
     while True:
         schedule.run_pending()
 
 
 if __name__ == "__main__":
-    content = sentence.zaoan()
-    print(content)
-    send_email()
+    # content = sentence.zaoan()
+    # print(content)
+    config = config.config
+    print(config)
+    # send_email()
     print("Bye~ System Closed!")

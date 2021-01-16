@@ -2,12 +2,17 @@ from email import encoders
 from email.header import Header
 from email.mime.text import MIMEText
 from email.utils import parseaddr, formataddr
-from .configuration import email_info, to_addr
+from send_email.config import config
 import smtplib
+import time
 
+
+email_info = config.email_info
 sender_user = email_info["sender_user"]
 sender_pwd = email_info["sender_pwd"]
 smtp_server = email_info["smtp_server"]
+
+to_addr = config.to_addr
 
 
 def _format_addr(s):
@@ -26,6 +31,8 @@ def send_email(content):
     server.login(sender_user, sender_pwd)
     for i in range(len(to_addr)):
         server.sendmail(sender_user, to_addr[i], msg.as_string())
+        print("-->Send to {}".format(to_addr[i]))
+        time.sleep(5)
     server.quit()
 
 

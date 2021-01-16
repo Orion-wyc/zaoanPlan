@@ -1,0 +1,25 @@
+{
+  "email_info": {
+    "sender_user": "xxx@foxmail.com",
+    "sender_pwd": "ababababababab",
+    "smtp_server": "smtp.qq.com",
+    "port": 465
+  },
+  "to_addr": [
+    "aaa@qq.com",
+    "bbb@qq.com",
+    "ccc@qq.com",
+    "ddd@126.com"
+  ],
+  "test_to_addr": [
+    "xxx@126.com",
+    "xxx@126.com",
+    "xxx@126.com"
+  ],
+  "time_dict": {
+    "zaoan": "08:00",
+    "wanan": "20:00",
+    "test": "10:08:40"
+  },
+  "APIKEY": "yourcodehere"
+}
